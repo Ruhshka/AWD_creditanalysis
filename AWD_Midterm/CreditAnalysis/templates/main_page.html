@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Credit Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Financial Credit Analysis Endpoints</h1>
+    <ol>
+        {% for endpoint in endpoints %}
+            <li>{{ endpoint.name }}</li>
+            {% if endpoint.description %}
+                <ol>
+                    {% for desc in endpoint.description %}
+                        <li>{{ desc }}</li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+            <a href="{{ endpoint.url }}">{{ endpoint.url }}</a>
+            <br><br><br>
+        {% endfor %}
+    </ol>
+</body>
+</html>
